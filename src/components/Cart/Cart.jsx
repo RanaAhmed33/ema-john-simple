@@ -5,7 +5,7 @@ const Cart = ({ cart }) => {
 
     // const cart = props.cart;  option --0001
     // const { cart } = props; option --0002
-    // console.log(cart)
+    console.log(cart)
     let total = 0;
     let totalShipping = 0;
     for (const product of cart) {

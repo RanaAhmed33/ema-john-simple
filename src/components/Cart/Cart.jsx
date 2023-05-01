@@ -10,9 +10,16 @@ const Cart = ({ cart }) => {
     console.log(cart)
     let total = 0;
     let totalShipping = 0;
+    let quantity = 0;
+
     for (const product of cart) {
-        total = total + product.price;
+        // if (product.quantity === 0) {
+        //     product.quantity = 1;
+        // }
+        // product.quantity = product.quantity || 1; if er shortcut
+        total = total + product.price * product.quantity;
         totalShipping = totalShipping + product.shipping;
+        quantity = quantity + product.quantity;
 
     }
 
@@ -23,7 +30,7 @@ const Cart = ({ cart }) => {
     return (
         <div className='cart'>
             <h3>Orders Summary:</h3>
-            <p>Selected Items: {cart.length}</p>
+            <p>Selected Items: {quantity}</p>
             <p>Total Price:$ {total}</p>
             <p>Total Shipping Charge:$ {totalShipping}</p>
             <p>Tax:$ {tax.toFixed(2)}</p>
